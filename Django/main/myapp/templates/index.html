@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'static\css\index.css' %}">
+    <script src="{% static 'js\index.js' %}"></script>
+    <title>Kezdőlap</title>
+  </head>
+  <body class="body">
+    <div class="main_screen">
+      <h1 class="main_title">Cafeteria</h1>
+        <div class="login-page">
+          <div class="form">
+            <form method="POST" class="register-form" action="{% url 'register' %}">
+              {% csrf_token %}
+              <input type="text" name="id" placeholder="Dolgozói Kód">
+              <input type="text" name="név" placeholder="Név">
+              <div class="jelszó-input-container">
+                <input type="password" name="password1" id="password1" placeholder="Jelszó">
+                <span class="jelszó-toggle-icon" data-target="password1"><i class="fas fa-eye"></i></span>
+              </div>
+              <div class="jelszó-input-container">
+                <input type="password" name="password2" id="password2" placeholder="Jelszó Megerősítés">
+                <span class="jelszó-toggle-icon" data-target="password2"><i class="fas fa-eye"></i></span>
+              </div>
+              <button class="bn632-hover bn26" type="submit">Regisztrálás</button>
+              <p class="message">Már van fiókod? <a href="#">Jelentkezz be</a></p>
+            </form>          
+            <form class="login-form" action="{% url 'login' %}" method="POST">
+              {% csrf_token %}
+              <div>
+                  <label for="id_username">Név:</label>
+                  <input type="text" id="id_username" name="név">
+              </div>
+              <div>
+                  <label for="id_password">Jelszó:</label>
+                  <div class="jelszó-input-container">
+                    <input type="password" id="id_password" name="jelszó">
+                    <span class="jelszó-toggle-icon" data-target="id_password"><i class="fas fa-eye"></i></span>
+                  </div>
+              </div>
+              <button class="bn632-hover bn26" type="submit">Bejelentkezés</button>
+              {% if error_message %}
+                  <p>{{ error_message }}</p>
+              {% endif %}
+              <p class="message">Nem regisztráltál még? <a href="#">Készíts fiókot itt</a></p>
+            </form>          
+         </div>
+      </div>
+    </div>
+  </body>
+</html>

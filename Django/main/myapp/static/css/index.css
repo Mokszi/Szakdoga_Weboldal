@@ -1,0 +1,155 @@
+.body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #79ead3;
+    overflow: hidden;
+  }
+.main_title {
+    text-align: center;
+    text-transform: uppercase;
+    color: white;
+    font-family: arial;
+    font-size: 120px;
+    line-height: 90px;
+    letter-spacing: 15px;
+    text-shadow: 0 1px 0 #efefef,
+                 0 2px 0 #efefef,
+                 0 3px 0 #efefef,
+                 0 4px 0 #efefef,
+                 0 30px 5px rgba(0, 0, 0, 0.1);
+    animation: swing 6s linear infinite alternate;
+  }
+  /*animation of text*/
+  @keyframes swing {
+    from {
+      transform: rotate(5deg);
+    }
+    to {
+      transform: rotate(-5deg);
+    }
+  }
+.login-page {
+  width: 360px;
+  padding: 8% 0 0;
+  margin: auto;
+}
+/*login pane*/
+.form {
+  position: relative;
+  z-index: 1;
+  max-width: 360px;
+  margin: 0 auto 100px;
+  padding: 45px;
+  text-align: center;
+  border-radius: 55px;
+  background: linear-gradient(145deg, #4db7c1, #ffffff);
+  box-shadow:  19px 19px 38px #d6d6d6, -8px -8px 38px #ffffff;
+}
+.form input {
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+.form button {
+  text-transform: uppercase;
+  outline: 0;
+  background: #4CAF50;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+.form button:hover,.form button:active,.form button:focus {
+  background: #43A047;
+}
+.form .message {
+  margin: 15px 0 0;
+  color: #b3b3b3;
+  font-size: 12px;
+}
+.form .message a {
+  color: #4CAF50;
+}
+.form .register-form {
+  display: none;
+}
+.container {
+  position: relative;
+  z-index: 1;
+  max-width: 300px;
+  margin: 0 auto;
+}
+.container:before, .container:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+/*button*/
+.bn632-hover {
+  width: 160px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  height: 55px;
+  text-align:center;
+  border: none;
+  background-size: 300% 100%;
+  border-radius: 50px;
+  -moz-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+}
+
+.bn632-hover:hover {
+  background-position: 100% 0;
+  -moz-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+}
+
+.bn632-hover:focus {
+  outline: none;
+}
+
+.bn632-hover.bn26 {
+  background-image: linear-gradient(
+    to right,
+    #25aae1,
+    #4481eb,
+    #04befe,
+    #3f86ed
+  );
+  box-shadow: 0 4px 15px 0 rgba(65, 132, 234, 0.75);
+}
+
+.jelszó-input-container {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.jelszó-input-container input[type="password"] {
+  width: calc(100% - 0px); /* Adjust width to accommodate the eye icon */
+}
+
+.jelszó-toggle-icon {
+  position: absolute;
+  top: 40%;
+  right: 20px;
+  transform: translateY(-50%);
+  cursor: pointer;
+}

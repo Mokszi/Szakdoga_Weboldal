@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'static\css\admin.css' %}">
+    <title>Admin oldal</title>
+  </head>
+  <body>
+    <div class="area">
+      <ul class="circles">
+        <div class="navbar">
+          <a class="active" href="admin.html"><i class="fa fa-fw fa-home"></i> Kezdőlap</a>
+          <div class="dropdown">
+            <button class="dropbtn"><i class="fa fa-fw fa-calendar"></i> Naptárak</button>
+            <div class="dropdown-content">
+                <a href="admin_calendar_emp_tit.html">Felvételi naptár</a>
+                <a href="admin_calendar.html">Beadási naptár</a>
+            </div>
+          </div>
+          <a href="admin_employees.html"><i class="fa fa-fw fa-user"></i> Alkalmazottak</a>
+          <a href="admin_positions.html"><i class="fa fa-fw fa-briefcase"></i> Pozíciók</a>
+        </div>
+        <label class="text">{{ present_employees }}/{{ total_employees }} felhasználó küldte be eddig a cafeteria tervezetét</label>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
+  </body>
+</html>

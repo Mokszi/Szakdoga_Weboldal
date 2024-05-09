@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css\admin_positions.css' %}">
+    <script src="{% static 'static\js\admin_positions.js' %}"></script>
+    <title>Admin-Pozíciók oldal</title>
+  </head>
+  <body class="admin-body">
+    <div class="navbar">
+        <a href="admin.html"><i class="fa fa-fw fa-home"></i> Kezdőlap</a>
+        <div class="dropdown">
+          <button class="dropbtn"><i class="fa fa-fw fa-calendar"></i> Naptárak</button>
+          <div class="dropdown-content">
+              <a href="admin_calendar_emp_tit.html">Felvételi naptár</a>
+              <a href="admin_calendar.html">Beadási naptár</a>
+          </div>
+        </div>
+        <a href="admin_employees.html"><i class="fa fa-fw fa-user"></i> Alkalmazottak</a>
+        <a class="active" href="admin_positions.html"><i class="fa fa-fw fa-briefcase"></i> Pozíciók</a>
+    </div>
+    <div class="button-container">
+        <button class="openBtn" onclick="openSearch()"><i class="fa fa-search"></i></button>
+        <button id="addButton"><i class="fa fa-plus"></i></button>
+        <button id="openModalButton"><i class="fa fa-pencil"></i></button>
+        <button id="deleteButton" type="submit"><i class="fa fa-trash"></i></button>
+    </div>
+    <div id="myOverlay" class="overlay">
+      <span class="closebtn" onclick="closeSearch()" beosztás="Close Overlay">x</span>
+      <div class="overlay-content">
+          <input type="text" placeholder="Search..." name="search">
+          <button type="submit"><i class="fa fa-search"></i></button>
+      </div>
+    </div>
+    <div class="container">
+      <ul id="scrollable-list">
+        {% for position in positions %}
+            <li data-beosztás="{{ position.beosztás }}">
+                <input type="checkbox" name="selected_position" value="{{ position.id }}">
+                {{ position.beosztás }} - {{ position.pénz }} - Alkalmazottak száma: 
+                {% for key, value in title_counts.items %}
+                    {% if key == position.id %}
+                        {{ value }}
+                    {% endif %}
+                {% endfor %}
+            </li>
+        {% endfor %}
+      </ul>
+    </div>                  
+  </body>
+</html>

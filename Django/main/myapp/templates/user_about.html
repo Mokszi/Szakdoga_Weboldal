@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'C:\Users\gery9\OneDrive\Asztali gép\Szakdoga_Weboldal\Django\main\myapp\static\css\user_about.css' %}">
+        <script src="{% static 'C:\Users\gery9\OneDrive\Asztali gép\Szakdoga_Weboldal\Django\main\myapp\static\js\user_about.js' %}"></script>
+        <title>Kapcsolai oldal</title>
+    </head>
+    <body>
+        <div class="container" onclick="openNav()">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+        </div>
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="user.html">Kezdőlap</a>
+            <a href="user_services.html">Cafeteria</a>
+            <a href="user_about.html">Kapcsolat</a>
+            <a href="index.html">Kijelentkezés</a>
+        </div>
+        <div class="container_text">
+            <h1 class="about"></h1>
+            <div class="owner-info">
+                <h2>Kapcsolati Információk</h2>
+                <ul>
+                    <li><strong>Név:</strong> John Doe</li>
+                    <li><strong>Email:</strong> johndoe@example.com</li>
+                    <li><strong>Telefonszám:</strong> +1 (555) 123-4567</li>
+                    <li><strong>Lakcím:</strong> 123 Main Street, City, Country</li>
+                </ul>
+            </div>
+        </div>
+    </body>
+</html>

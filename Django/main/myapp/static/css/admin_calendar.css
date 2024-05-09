@@ -1,0 +1,181 @@
+/* Style the navigation bar */
+.navbar {
+    width: 100%;
+    background-color: #555;
+    overflow: auto;
+  }
+  /* Navbar links */
+  .navbar a {
+    float: left;
+    text-align: center;
+    padding: 12px;
+    color: white;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  /* Navbar links on mouse-over */
+  .navbar a:hover {
+    background-color: #000;
+  }
+  /* Current/active navbar link */
+  .active {
+    background-color: #4e54c8;
+  }
+  /* Add responsiveness - will automatically display the navbar vertically instead of horizontally on screens less than 500 pixels */
+  @media screen and (max-width: 500px) {
+    .navbar a {
+      float: none;
+      display: block;
+    }
+  }
+  body{
+    font-family: 'Exo', sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+/* Calendar container */
+.calendar {
+    font-family: 'Arial', sans-serif;
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Header */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Navigation buttons */
+  #prevBtn,
+  #nextBtn {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  #prevBtn:hover,
+  #nextBtn:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Month and Year */
+  #monthYear {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+/* Days of the week */
+  .days {
+        display: flex;
+  }
+  
+  .day {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+    font-weight: bold;
+    color: #555;
+    text-transform: uppercase;
+  }
+  
+  
+/* Dates */
+.dates {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+  }
+  
+  .date {
+    text-align: center;
+    padding: 15px;
+    font-size: 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 35px; /* Adjust the width as needed */
+  }
+  .date:hover {
+    background-color: #f0f0f0;
+  }
+  /* Your existing CSS styles */
+.date.active {
+    background-color: #007bff;
+    color: #fff;
+  }
+  .button-container{
+    font-family: 'Arial', sans-serif;
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+/* Dropdown container */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown button */
+.dropbtn {
+  background-color: #555;
+  color: white;
+  padding: 12px;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+  display: none;
+  position: static;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  z-index: 10; /* Set a high z-index value to ensure it appears on top */
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: #f9f9f9;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: #000;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+  top: calc(100% + 5px); /* munkakör the dropdown below the dropbtn */
+  left: 0; /* Align the left edge of the dropdown with the left edge of the dropbtn */
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+  background-color: #000;
+}
+
+.calendar h2 {
+  text-align: center;
+}

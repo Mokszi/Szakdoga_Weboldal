@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css\admin_calendar.css' %}">
+    <script src="{% static 'static\js\admin_calendar.js' %}"></script>
+    <title>Admin Naptár</title>
+  </head>
+  <body>
+    <div class="navbar">
+        <a href="admin.html"><i class="fa fa-fw fa-home"></i> Kezdőlap</a>
+        <div class="dropdown">
+          <button class="dropbtn"><i class="fa fa-fw fa-calendar"></i> Naptárak</button>
+          <div class="dropdown-content">
+              <a href="admin_calendar_emp_tit.html">Felvételi naptár</a>
+              <a class="active" href="admin_calendar.html">Beadási naptár</a>
+          </div>
+        </div>
+        <a href="admin_employees.html"><i class="fa fa-fw fa-user"></i> Alkalmazottak</a>
+        <a href="admin_positions.html"><i class="fa fa-fw fa-briefcase"></i> Pozíciók</a>
+    </div>
+    <div class="calendar">
+      <h2>Beadási Naptár</h2>
+        <div class="header">
+          <button id="prevBtn">&lt;</button>
+          <h2 id="monthYear">Month Year</h2>
+          <button id="nextBtn">&gt;</button>
+        </div>
+        <div class="days">
+          <div class="day">Vas</div>
+          <div class="day">Hét</div>
+          <div class="day">Ked</div>
+          <div class="day">Sze</div>
+          <div class="day">Csü</div>
+          <div class="day">Pén</div>
+          <div class="day">Szo</div>
+        </div>
+        <div class="dates" id="dates"></div>
+    </div>
+    <div class="button-container">
+        <button id="button-finalize">Véglegesítés</button>
+        <label id="finalized-time"></label>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'C:\Users\gery9\OneDrive\Asztali gép\Szakdoga_Weboldal\Django\main\myapp\static\css\user_services.css' %}">
+        <script src="{% static 'static\js\user_services.js' %}"></script>
+        <title>Services Page</title>
+    </head>
+    <body>
+        <div class="container" onclick="openNav()">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+        </div>
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="user.html">Kezdőlap</a> 
+            <a href="user_services.html">Cafeteria</a>
+            <a href="user_about.html">Kapcsolat</a>
+            <a href="index.html">Kijelentkezés</a>
+        </div>
+        <label>{{ név }} -nak/-nek {{ pénz_per_user }} Forint áll rendelkezésére hogy elköltse.</label>
+        <div class="table-div">
+            <table>
+                <tr>
+                <td>bérelem</td>
+                <td>szorzó</td>
+                <td>nettó</td>
+                <td>bruttó</td>
+                </tr>
+                <tr>
+                    <td colspan="4">[-] havi tételek</td>
+                </tr>
+                <tr>
+                    <td>Bérként, havi részletekben történő kifizetés</td>
+                    <td id="berkent_szorzo">1,6992</td>
+                    <td id="berkent_netto"></td>
+                    <td id="berkent_sum"></td>
+                </tr>
+                <tr>
+                    <td>Önkéntes Nyugdíjpénztár</td>
+                    <td id="nyugdij_szorzo">1,3304</td>
+                    <td id="nyugdij_netto"></td>
+                    <td id="nyugdij_sum"></td>
+                </tr>
+                <tr>
+                    <td>Önkéntes Egészségpénztár</td>
+                    <td id="egeszseg_szorzo">1,3304</td>
+                    <td id="egeszseg_netto"></td>
+                    <td id="egeszseg_sum"></td>
+                </tr>
+                <tr>
+                    <td colspan="4">[-] negyedéves tételek</td>
+                </tr>
+                <tr>
+                    <td>SZÉP Kártya</td>
+                    <td id="szep_szorzo">1,28</td>
+                    <td id="szep_netto"></td>
+                    <td id="szep_sum"></td>
+                </tr>
+                <tr>
+                    <td colspan="4">[-] egyszeri tételek</td>
+                </tr>
+                <tr>
+                    <td>Céges ajándék kártya</td>
+                    <td id="ajandek_szorzo">1,3304</td>
+                    <td id="ajandek_netto"></td>
+                    <td id="ajandek_I_sum"></td>
+                </tr>
+                <tr>
+                    <td colspan="4">[-] éves tételek</td>
+                </tr>
+                <tr>
+                    <td>Helyközi bérlet kieg.</td>
+                    <td id="berlet_szorzo">1</td>
+                    <td id="berlet_netto"></td>
+                    <td id="berlet_I_sum"></td>
+                </tr>
+                <tr>
+                    <td>Kultúrális belépőjegy (InterTicket)</td>
+                    <td id="kultur_szorzo">1</td>
+                    <td id="kultur_netto"></td>
+                    <td id="kultur_I_sum"></td>
+                </tr>
+                <tr>
+                    <td>Sportesemény belépőjegy (InterTicket)</td>
+                    <td id="sport_szorzo">1</td>
+                    <td id="sport_netto"></td>
+                    <td id="sport_I_sum"></td>
+                </tr>
+                <tr>
+                    <td>Bölcsödei/óvodai szolgáltatás térítés</td>
+                    <td id="ovi_szorzo">1</td>
+                    <td id="ovi_netto"></td>
+                    <td id="ovi_I_sum"></td>
+                </tr>
+                <tr>
+                    <td colspan="2">ÖSSZESEN</td>
+                    <td id="netto_sum"></td>
+                    <td id="brutto_sum"></td>
+                </tr>
+            </table>
+            <table class="input-table">
+                <tr>
+                    <td colspan="12">időszak</td>
+                </tr>
+                <tr>
+                    <td>jan.</td>
+                    <td>feb.</td>
+                    <td>már.</td>
+                    <td>ápr.</td>
+                    <td>máj.</td>
+                    <td>jún.</td>
+                    <td>júl.</td>
+                    <td>aug.</td>
+                    <td>sze.</td>
+                    <td>okt.</td>
+                    <td>nov.</td>
+                    <td>dec.</td>
+                </tr>
+                <tr>
+                    <td class="input-field"><input type="number" id="berkent_jan" min="0"></td>
+                    <td class="input-field"><input type="number" id="berkent_feb" min="0"></td>
+                    <td class="input-field"><input type="number" id="berkent_mar" min="0"></td>
+                    <td class="input-field"><input type="number" id="berkent_apr" min="0"></td>
+                    <td class="input-field"><input type="number" id="berkent_maj" min="0"></td>
+                    <td class="input-field"><input type="number" id="berkent_jun" min="0"></td>
+                    <td class="input-field"><input type="number" id="berkent_jul" min="0"></td>
+                    <td class="input-field"><input type="number" id="berkent_aug" min="0"></td>
+                    <td class="input-field"><input type="number" id="berkent_sep" min="0"></td>
+                    <td class="input-field"><input type="number" id="berkent_okt" min="0"></td>
+                    <td class="input-field"><input type="number" id="berkent_nov" min="0"></td>
+                    <td class="input-field"><input type="number" id="berkent_dec" min="0"></td>
+                </tr>
+                <tr>
+                    <td class="input-field"><input type="number" id="nyugdij_jan" min="0"></td>
+                    <td class="input-field"><input type="number" id="nyugdij_feb" min="0"></td>
+                    <td class="input-field"><input type="number" id="nyugdij_mar" min="0"></td>
+                    <td class="input-field"><input type="number" id="nyugdij_apr" min="0"></td>
+                    <td class="input-field"><input type="number" id="nyugdij_maj" min="0"></td>
+                    <td class="input-field"><input type="number" id="nyugdij_jun" min="0"></td>
+                    <td class="input-field"><input type="number" id="nyugdij_jul" min="0"></td>
+                    <td class="input-field"><input type="number" id="nyugdij_aug" min="0"></td>
+                    <td class="input-field"><input type="number" id="nyugdij_sep" min="0"></td>
+                    <td class="input-field"><input type="number" id="nyugdij_okt" min="0"></td>
+                    <td class="input-field"><input type="number" id="nyugdij_nov" min="0"></td>
+                    <td class="input-field"><input type="number" id="nyugdij_dec" min="0"></td>
+                </tr>
+                <tr>
+                    <td class="input-field"><input type="number" id="egeszseg_jan" min="0"></td>
+                    <td class="input-field"><input type="number" id="egeszseg_feb" min="0"></td>
+                    <td class="input-field"><input type="number" id="egeszseg_mar" min="0"></td>
+                    <td class="input-field"><input type="number" id="egeszseg_apr" min="0"></td>
+                    <td class="input-field"><input type="number" id="egeszseg_maj" min="0"></td>
+                    <td class="input-field"><input type="number" id="egeszseg_jun" min="0"></td>
+                    <td class="input-field"><input type="number" id="egeszseg_jul" min="0"></td>
+                    <td class="input-field"><input type="number" id="egeszseg_aug" min="0"></td>
+                    <td class="input-field"><input type="number" id="egeszseg_sep" min="0"></td>
+                    <td class="input-field"><input type="number" id="egeszseg_okt" min="0"></td>
+                    <td class="input-field"><input type="number" id="egeszseg_nov" min="0"></td>
+                    <td class="input-field"><input type="number" id="egeszseg_dec" min="0"></td>
+                </tr>
+                <tr>
+                    <td colspan="3">I. negyedév</td>
+                    <td colspan="3">II. negyedév</td>
+                    <td colspan="3">III. negyedév</td>
+                    <td colspan="3">IV. negyedév</td>
+                </tr>
+                <tr>
+                    <td class="input-number" colspan="3"><input type="number" id="szep_I" min="0"></td>
+                    <td class="input-number" colspan="3"><input type="number" id="szep_II" min="0"></td>
+                    <td class="input-number" colspan="3"><input type="number" id="szep_III" min="0"></td>
+                    <td class="input-number" colspan="3"><input type="number" id="szep_IV" min="0"></td>
+                </tr>
+                <tr>
+                    <td class="row-style" colspan="12">-</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="number" min="0" id="ajandek_I"></td>
+                    <td colspan="10"></td>
+                </tr>
+                <tr>
+                    <td class="row-style" colspan="12">-</td>
+                </tr>
+                <tr>
+                    <td colspan="11"></td>
+                    <td><input type="number" id="berlet_I" min="0"></td>
+                </tr>
+                <tr>
+                    <td colspan="11"></td>
+                    <td><input type="number" id="kultur_I" min="0"></td>
+                </tr>
+                <tr>
+                    <td colspan="11"></td>
+                    <td><input type="number" id="sport_I" min="0"></td>  
+                </tr>
+                <tr>
+                    <td colspan="11"></td>
+                    <td><input type="number" id="ovi_I" min="0"></td>
+                </tr>
+                <tr>
+                    <td colspan="12" id="difference">maradvány összeg: {{ difference }}</td>
+                </tr>
+            </table>
+        </div>
+        <div class="buttons">
+            <button id="saveBtn">kezdés/mentés</button>
+            <button id="finalizeBtn">véglegesítés</button>
+            <button id="printButton">nyomtatás</button>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'static\css\admin_employees.css' %}">
+    <script src="{% static 'static\js\admin_employees.js' %}"></script>
+    <title>Admin-Alaklmazottak oldal</title>
+  </head>
+  <body class="admin-body">
+      <div class="navbar">
+          <a href="admin.html"><i class="fa fa-fw fa-home"></i> Kezdőlap</a>
+          <div class="dropdown">
+              <button class="dropbtn"><i class="fa fa-fw fa-calendar"></i> Naptárak</button>
+              <div class="dropdown-content">
+                  <a href="admin_calendar_emp_tit.html">Felvételi naptár</a>
+                  <a href="admin_calendar.html">Beadási naptár</a>
+              </div>
+          </div>
+          <a class="active" href="admin_employees.html"><i class="fa fa-fw fa-user"></i> Alkalmazottak</a>
+          <a href="admin_positions.html"><i class="fa fa-fw fa-briefcase"></i> Pozíciók</a>
+      </div>
+    <div class="button-container">
+        <button class="openBtn" onclick="openSearch()"><i class="fa fa-search"></i></button>
+        <button id="addButton"><i class="fa fa-plus"></i></button>
+        <button id="openModalButton"><i class="fa fa-pencil"></i></button>
+        <button id="deleteButton" type="submit"><i class="fa fa-trash"></i></button>
+    </div>
+    <div id="myOverlay" class="overlay">
+        <span class="closebtn" onclick="closeSearch()" beosztás="Close Overlay">x</span>
+        <div class="overlay-content">
+            <input type="text" placeholder="Search..." name="search">
+            <button type="submit"><i class="fa fa-search"></i></button>
+        </div>
+    </div>
+    <div class="container">
+      <ul id="scrollable-list">
+        {% for user in sign_ins %}
+        <li data-név="{{ user.név }}">
+            <input type="checkbox" name="selected_user" value="{{ user.név }}">
+            <span class="név-value">{{ user.id }} - {{ user.név }} - 
+                {% if user.beosztás_id is None %}
+                    Nincs beosztás - 
+                {% else %}
+                    {% for position in positions %}
+                        {% if position.id == user.beosztás_id %}
+                            {{ position.beosztás }} - 
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+                {{ user.beadási_határidő|default_if_none:"Nincs cafeteria" }} - 
+                {% if user.admin_e %}
+                    Admin
+                {% else %}
+                    <!-- Display nothing for admin_e = False -->
+                {% endif %}
+            </span>
+        </li>
+        {% endfor %}
+        {% if new_user_details %}
+        <li data-név="{{ new_user_details.név }}">
+            <input type="checkbox" name="selected_user" value="{{ new_user_details.név }}">
+            <span class="név-value">{{ new_user_details.név }} - 
+                {% if new_user_details.beosztás_id is None %}
+                    Nincs még beállítva - 
+                {% else %}
+                    {% for position in positions %}
+                        {% if position.id == new_user_details.beosztás_id %}
+                            {{ position.beosztás }} - 
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+                {{ new_user_details.beadási_határidő|default_if_none:"Nincs még beállítva" }} - 
+                {% if new_user_details.admin_e %}
+                    Admin
+                {% else %}
+                    <!-- Display nothing for admin_e = False -->
+                {% endif %}
+            </span>
+        </li>
+        {% endif %}
+      </ul>
+    </div>   
+  </body>
+</html>
